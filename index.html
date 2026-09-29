@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конфигуратор ПК — Деловая сборка</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ШАПКА -->
+    <header class="header">
+        <div class="header__inner">
+            <h1 class="header__title">Конфигуратор ПК</h1>
+            <p class="header__subtitle">Подбор комплектующих с проверкой совместимости</p>
+        </div>
+    </header>
+
+    <!-- ЭКРАН 1: ПРИВЕТСТВИЕ -->
+    <section id="screen-start" class="screen screen--active">
+        <div class="container">
+            <h2 class="screen__title">Начало работы</h2>
+            <p class="screen__text">
+                Система проведёт вас по девяти шагам подбора комплектующих.
+                На каждом шаге доступны варианты с характеристиками и актуальными ценами.
+                Система автоматически проверяет совместимость и подсчитывает итоговую стоимость.
+            </p>
+            <p class="screen__text">Выберите класс сборки, чтобы начать:</p>
+            <div class="start-buttons">
+                <button class="btn btn--class" data-class="budget">
+                    <span class="btn__name">Бюджетный</span>
+                    <span class="btn__desc">до 50 000 ₽ · офис, учёба</span>
+                </button>
+                <button class="btn btn--class" data-class="middle">
+                    <span class="btn__name">Средний</span>
+                    <span class="btn__desc">50 000 – 120 000 ₽ · игры 1080p, работа</span>
+                </button>
+                <button class="btn btn--class" data-class="top">
+                    <span class="btn__name">Топовый</span>
+                    <span class="btn__desc">от 120 000 ₽ · игры 4K, рендер, стриминг</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ЭКРАН 2: КОНФИГУРАТОР -->
+    <section id="screen-config" class="screen">
+        <div class="container container--wide">
+            <div class="config-layout">
+
+                <!-- Левая колонка: текущая сборка -->
+                <aside class="summary">
+                    <h3 class="summary__title">Текущая сборка</h3>
+                    <p class="summary__class" id="summary-class">Класс: —</p>
+                    <ul class="summary__list" id="summary-list">
+                        <li class="summary__empty">Комплектующие не выбраны</li>
+                    </ul>
+                    <div class="summary__total">
+                        <span>Итого:</span>
+                        <strong id="summary-total">0 ₽</strong>
+                    </div>
+                </aside>
+
+                <!-- Правая колонка: шаг выбора -->
+                <main class="step-area">
+                    <div class="step-header">
+                        <span class="step-header__counter" id="step-counter">Шаг 1 / 9</span>
+                        <h2 class="step-header__title" id="step-title">Процессор</h2>
+                        <p class="step-header__hint" id="step-hint"></p>
+                    </div>
+
+                    <div class="cards" id="cards-container"></div>
+
+                    <div class="step-footer">
+                        <button class="btn btn--ghost" id="btn-back">← Назад</button>
+                        <button class="btn btn--primary" id="btn-restart">Начать заново</button>
+                    </div>
+                </main>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ЭКРАН 3: РЕЗУЛЬТАТ -->
+    <section id="screen-result" class="screen">
+        <div class="container">
+            <h2 class="screen__title">Итоговая спецификация</h2>
+            <p class="screen__text" id="result-class"></p>
+
+            <table class="result-table">
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Комплектующая</th>
+                        <th>Модель</th>
+                        <th>Ключевые характеристики</th>
+                        <th>Цена</th>
+                    </tr>
+                </thead>
+                <tbody id="result-body"></tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" class="result-table__total-label">Итого</td>
+                        <td class="result-table__total-value" id="result-total">0 ₽</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <div class="result-actions">
+                <button class="btn btn--primary" id="btn-print">Скачать смету (PDF)</button>
+                <button class="btn btn--ghost" id="btn-restart-2">Начать заново</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПОДВАЛ -->
+    <footer class="footer">
+        <div class="container">
+            <p>Конфигуратор ПК · Демонстрационный прототип · Цены ориентировочные</p>
+        </div>
+    </footer>
+
+    <!-- ПОДКЛЮЧЕНИЕ СКРИПТОВ (порядок важен!) -->
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
